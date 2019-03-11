@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图veshi</title>
+	<link rel="stylesheet" href="css/vue-swipe.css">
+	<link rel="stylesheet" href="css/iSlider.css" />
+	<style type="text/css">
+		/*.swipe {
+			overflow: hidden;
+			visibility: hidden;
+			position: relative;
+			height: 200/@rem;
+		}
+		
+		.swipe .swipe-wrap {
+			position: relative;
+			overflow: hidden;
+			height: 100%;
+		}
+		
+		.swipe .swipe-wrap div {
+			float: left;
+			width: 100%;
+			position: relative;
+			margin: 0;
+		}
+		
+		.swipe .swipe-wrap div a {
+			width: 100%;
+			height: 100%;
+			background-position: center 0;
+			background-repeat: no-repeat;
+			background-color: transparent;
+			display: block;
+		}
+		
+		.swipe .swipe-wrap div a img {
+			width: 100%;
+			height: 100%;
+		}
+		
+		.swipe .pagination {
+			text-align: center;
+			position: relative;
+			bottom: 40/@rem;
+			cursor: pointer;
+		}
+		
+		.swipe .swipe-pagination-switch {
+			content: "";
+			display: inline-block;
+			width: 8px;
+			height: 8px;
+			border-radius: 100%;
+			background: #000;
+			opacity: 0.2;
+			margin: 0 8px;
+			z-index: 10;
+		}
+		
+		.swipe .swipe-pagination-switch &:first-child {
+			background: #ee3a4a;
+		}
+		
+		.swipe .swipe-active-switch {
+			opacity: 1;
+		}*/
+		
+		#temloate {
+			width: 500px;
+			margin: 0 auto;
+		}
+		
+		#temloate {
+			position: relative;
+		}
+		
+		.islider-outer {
+			padding-bottom: 61.38%;
+		}
+		
+		.pagination {
+			position: absolute;
+			bottom: -19px;
+			margin-left: -45px;
+			left: 50%;
+		}
+		
+		.swipe-pagination-switch {
+			display: block;
+			width: 10px;
+			height: 10px;
+			background: #000;
+			float: left;
+			margin: 0 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app">
+		<Isliders :swipeinfo='list'></Isliders>
+		<!-- <Division :swipeinfo='list'></Division>
+		<ul>
+			<li v-for="item in value">
+				<input type="text" v-if="item.name == 1" v-model="item.data.tel" />
+				<input type="text" v-if="item.name == 2" v-model="item.data.sex" />
+				<input type="text" v-if="item.name == 2" v-model="item.data.tio" />
+			</li>
+		</ul>
+		<button @click="demo">提交</button>
+		<button @click="demo1">提交</button> -->
+	</div>
+</body>
+
+</html>
+<script src="js/vue.js"></script>
+<!-- <script src="js/swipe.js"></script> -->
+<script src="js/main.js"></script>
+<script src="js/iSlider.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el: '#app',
+		 data: {
+		// 	value: [{
+		// 		name: 1,
+		// 		data: {
+		// 			tel: '一号一号'
+		// 		}
+		// 	}, {
+		// 		name: 1,
+		// 		data: {
+		// 			tel: '一号二号'
+		// 		}
+		// 	}, {
+		// 		name: 2,
+		// 		data: {
+		// 			sex: 15,
+		// 			tio: '二号'
+		// 		}
+		// 	}],
+			swipeInfo: [{
+				href: "http://www.baidu.com",
+				imgSrc: "img/value-1.png"
+			},{
+				href: "http://www.baidu.com",
+				imgSrc: "img/value-1.png"
+			}, {
+				href: "http://www.baidu.com",
+				imgSrc: "img/value-2.png"
+			}, {
+				href: "http://www.baidu.com",
+				imgSrc: "img/value-3.png"
+			}],
+			list: [{
+				content: "img/value-1.png"
+			},{
+				content: "img/value-1.png"
+			}, {
+				content: "img/value-2.png"
+			}, {
+				content: "img/value-3.png"
+			}, {
+				content: "img/web.jpg"
+			}],
+			num: null,
+		},
+		methods: {
+			demo() {
+				console.log(this.value,"+++")
+				this.num = this.Fibonacci(40);
+			},
+			demo1() {
+				this.value.push({
+					name: 1,
+					data: {
+						tel: '一号一号'
+					}
+				})
+			},
+			Fibonacci(n) {
+				if(n <= 1) {
+					return 1
+				}
+				return this.Fibonacci(n - 1) + this.Fibonacci(n - 2);
+			}
+		},
+		watch: {
+			num: function(sta, end) {
+				console.log(sta,"+++");
+				console.log(end);
+			}
+		},
+		components: {
+			Division,
+			Isliders
+		},
+	})
+</script>

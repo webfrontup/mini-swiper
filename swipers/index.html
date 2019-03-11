@@ -1,0 +1,34 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery响应式卡片轮播切换代码 - 站长素材</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+</head>
+<body>
+
+<div id="pk-banner">
+	<div id="pk-carousel">
+		<img src="images/f1.png" data-url="#">
+		<img src="images/f2.png" data-url="#">
+		<img src="images/f3.png" data-url="#">
+		<img src="images/f4.png" data-url="#">
+	</div>
+</div>
+
+<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/slider.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	$(function() {
+		$('#pk-carousel').carousel({
+			curDisplay: 0, //默认索引
+			autoPlay: false, //是否自动播放
+			interval: 3000 //间隔时间
+		});
+	});
+</script>
+</div>
+</body>
+</html>

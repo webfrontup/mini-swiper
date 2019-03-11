@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>这个是一个页面~</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	</head>
+	<style type="text/css">
+		body {
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			background-position: center;
+			margin: 0;
+			padding: 0;
+			background-image: url(http://www.ruanyifeng.com/images_pub/pub_0.png);
+			-webkit-transition: All 2s ease;
+			-moz-transition: All 2s ease;
+			-o-transition: All 2s ease;
+			-ms-transition: All 2s ease;
+			transition: All 2s ease;
+		}
+		
+		.banner {
+			background: url(img/web.jpg) no-repeat;
+			background-size: 100% 100%;
+			width: 100%;
+			padding-bottom: 91.1417%;
+		}
+		
+		p {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 200px;
+			line-height: 30px;
+			background: #000000;
+			color: #FFF;
+			box-sizing: border-box;
+			margin: -15px 0 0 -100px;
+			text-align: center;
+			-webkit-touch-callout: none;
+			/* iOS Safari */
+			-webkit-user-select: none;
+			/* Chrome/Safari/Opera */
+			-khtml-user-select: none;
+			/* Konqueror */
+			-moz-user-select: none;
+			/* Firefox */
+			-ms-user-select: none;
+			/* Internet Explorer/Edge */
+			user-select: none;
+		}
+		
+		.box {
+			width: 100px;
+			height: 100px;
+			background: #000000;
+			-webkit-clip-path: polygon(32.8% 58%, 38.4% 61.2%, 12.2% 81.5%);
+			background-color: #eee5d9;
+			-webkit-transition: 0.23s 0s cubic-bezier(0.62, 0.02, 0.34, 1);
+			-moz-transition: 0.23s 0
+		}
+		
+		.block {
+			width: 200px;
+			height: 200px;
+			padding: 25px;
+			background-image: linear-gradient(transparent, transparent), linear-gradient(to left, #0292f3 33.3%, transparent 0, transparent 66.6%, #0292f3 0), linear-gradient(#0292f3 33.3%, transparent 0, transparent 66.6%, #0292f3 0), linear-gradient(to right, #0292f3 33.3%, transparent 0, transparent 66.6%, #0292f3 0), linear-gradient(to bottom, #0292f3 33.3%, transparent 0, transparent 66.6%, #0292f3 0);
+			background-clip: content-box, border-box, border-box, border-box, border-box;
+			background-position: 0 0, 0 0, 100% 0, 0 100%, 0;
+			background-size: 100%, 100% 5px, 5px 100%, 100% 5px, 5px 100%;
+			background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				     </button>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active">
+						<a href="#" onclick="backgroundImage()">Link</a>
+					</li>
+					<li>
+						<a href="#">Link</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!--<div class="nav" style="background: #FFFF00;">
+		<div class="container" style="height: 50px;">
+			<div class="row">
+				<div class="col-md-8">.col-md-8</div>
+				<div class="col-md-4">.col-md-4</div>
+			</div>
+		</div>
+	</div>
+	<div class="nav">
+		<div class="container">
+			<div class="banner">
+
+			</div>
+		</div>
+	</div>-->
+	<p>获取中。。。</p>
+
+	<div class="box"></div>
+
+	<div class="block"></div>
+
+	<span id="img_placer"></span>
+</body>
+
+</html>
+
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		var titleget = null;
+		document.addEventListener("visibilitychange", function() {
+			if(document.hidden) {
+				if(titleget) {
+					clearTimeout(titleget)
+				}
+				document.title = "主人你到哪里去了~";
+			} else {
+				document.title = "欢迎回来~";
+				titleget = setTimeout(function() {
+					document.title = "这个是一个页面~";
+				}, 2000);
+			}
+		}, false);
+		//背景图片
+		backgroundImage();
+		//计时器
+		getTimes('2018/01/02 17:35:30');
+		//测试方法
+		demo();
+	}
+
+	var pub_img_current_image;
+	var backSet = null;
+
+	function backgroundImage() {
+		if(backSet) {
+			clearInterval(backSet);
+		}
+
+		var pub_img_path = 'http://www.ruanyifeng.com/images_pub/';
+		//var pub_img_path = 'http://t1.mmonly.cc/uploads/tu/sm/201601/19/';
+
+		var pub_img_num = 355;
+
+		var pub_img_current_no = function() {
+			return Math.floor(Math.random() * pub_img_num + 1);
+		};
+		var pub_img_url = function() {
+			return pub_img_path + 'pub_' + pub_img_current_no() + '.jpg';
+		};
+		if(pub_img_current_image === undefined) pub_img_current_image = pub_img_url();
+
+		if('querySelector' in document) {
+			var body = document.querySelector('body').style;
+		} else {
+			var body = document.body.style;
+		}
+		body.backgroundSize = 'cover';
+		body.backgroundRepeat = 'no-repeat';
+		body.backgroundImage = 'url(' + pub_img_current_image + ')';
+
+		var span = document.getElementById('img_placer');
+		span.innerHTML = '<span style="background-image: url(' + (pub_img_current_image = pub_img_url()) + ');width: 0px;height: 0px;display: inline;"></span>';
+
+		back();
+	}
+
+	function back() {
+		backSet = setInterval(function() {
+			backgroundImage();
+		}, 5000);
+	}
+
+	/*倒计时函数*/
+	function dateEnd(et) {
+		//保留几位数字
+		function fix(num, length) {
+			console.log((new Array(length + 1)).join('0'))
+			return('' + num).length < length ? ((new Array(length + 1)).join('0') + num).slice(-length) : '' + num;
+		}
+		console.log(et.replace(/\-/g, '/'))
+		var ete = et.replace(/\-/g, '/').substring(0, et.length);
+		console.log(ete)
+		var endTime = new Date(ete);
+		var nowTime = new Date();
+		if(endTime >= nowTime) {
+			var t = endTime - nowTime;
+			var d = Math.floor(t / 1000 / 3600 / 24);
+			var h = Math.floor(t / 1000 / 60 / 60 % 24);
+			var m = Math.floor(t / 1000 / 60 % 60);
+			var s = Math.floor(t / 1000 % 60);
+			h = fix(h, 2);
+			s = fix(s, 2);
+			if(d) {
+				return d + '天' + h + '小时' + m + '分' + s + '秒';
+			} else {
+				return '0天' + h + '小时' + m + '分' + s + '秒';
+			}
+		} else {
+			return '已经到期';
+		}
+	}
+
+	/**
+	 * 
+	 * @desc   格式化现在距${endTime}的剩余时间
+	 * @param  {Date} endTime  
+	 * @return {String}
+	 */
+	function formatRemainTime(endTime) {
+		var startDate = new Date(); //开始时间
+		var endDate = new Date(endTime); //结束时间
+		console.log(endDate);
+		var t = endDate.getTime() - startDate.getTime(); //时间差
+		var d = 0,
+			h = 0,
+			m = 0,
+			s = 0;
+		if(t >= 0) {
+			d = Math.floor(t / 1000 / 3600 / 24);
+			h = Math.floor(t / 1000 / 60 / 60 % 24);
+			m = Math.floor(t / 1000 / 60 % 60);
+			s = Math.floor(t / 1000 % 60);
+		}
+		return d + "天 " + h + "小时 " + m + "分钟 " + s + "秒";
+	}
+
+	/**
+	 * 
+	 * @getTimes   开始倒计时
+	 * @endDate  {String} 结束的时间  
+	 */
+	function getTimes(endDate) {
+		var countDown = Math.floor((new Date(endDate).getTime() - Date.now()) / 1000); //时间间隔的秒数
+		Timersertime(countDown);
+	}
+	//倒计时方法
+	function Timersertime(intDiff) {
+		var countDown = () => {
+			var day = 0; //天
+			var hour = 0; //时
+			var AllHour = 0; //加上天的总小时
+			var minute = 0; //分
+			var second = 0; //秒
+			if(intDiff > 0) {
+				day = Math.floor(intDiff / (60 * 60 * 24));
+				hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+				AllHour = Math.floor(intDiff / (60 * 60));
+				minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+				second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+				//当时间小于10的时候添加"0"
+				if(day <= 9) {
+					day = '0' + day;
+				}
+				if(AllHour <= 9) {
+					AllHour = '0' + AllHour;
+				}
+				if(hour <= 9) {
+					hour = '0' + hour;
+				}
+				if(minute <= 9) {
+					minute = '0' + minute;
+				}
+				if(second <= 9) {
+					second = '0' + second;
+				};
+				intDiff -= 1;
+				document.getElementsByTagName('p')[0].innerHTML = day + "天 " + hour + "小时 " + minute + "分钟 " + second + "秒";
+			} else {
+				clearInterval(senTime);
+				document.getElementsByTagName('p')[0].innerHTML = '倒计时到期';
+			}
+		};
+		//初始化
+		countDown();
+		//添加计时器
+		var senTime = setInterval(countDown, 1000)
+	}
+
+	var demo = () => {
+		let a = Array(15).fill(Array(15).fill(null));
+		console.log(a)
+		a[0][8] = 3;
+		console.log(a)
+
+		//定义以及初始化
+		var treeCol = new Array();
+		for(var i = 0; i < 2; i++) {
+			treeCol[i] = new Array();
+			for(var j = 0; j < 2; j++) {
+				treeCol[i][j] = 1;
+			}
+		}
+		treeCol = Array(2).fill(Array(2).fill(null));
+		console.log(treeCol);
+		//赋值
+		treeCol[0][0] = "organtreeDisplay";
+		/*treeCol[0][1] = "partyunit";
+		treeCol[1][0] = "jiguantreeDisplay";
+		treeCol[1][1] = "placetree";*/
+	}
+
+	function isWin(currentindex) {
+		var win = false;
+		var x;
+		var y;
+		var temp = currentindex.split("-");
+		x = parseInt(temp[0]);
+		y = parseInt(temp[1]);
+		if(flag == 0) { //白方
+			//垂直
+			if(winArithmetic(x, y, w, 0) == 5) {
+				return win = true;
+			}
+			//水平
+			if(winArithmetic(x, y, w, 1) == 5) {
+				return win = true;
+			}
+			//45度
+			if(winArithmetic(x, y, w, 2) == 5) {
+				return win = true;
+			}
+			//135度
+			if(winArithmetic(x, y, w, 3) == 5) {
+				return win = true;
+			}
+		} else { //黑方
+			//垂直
+			if(winArithmetic(x, y, b, 0) == 5) {
+				return win = true;
+			}
+			//水平
+			if(winArithmetic(x, y, b, 1) == 5) {
+				return win = true;
+			}
+			//45度
+			if(winArithmetic(x, y, b, 2) == 5) {
+				return win = true;
+			}
+			//135度
+			if(winArithmetic(x, y, b, 3) == 5) {
+				return win = true;
+			}
+		}
+		return win;
+	}
+</script>

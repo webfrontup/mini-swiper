@@ -1,0 +1,57 @@
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>这个是一个页面~</title>
+	<style type="text/css">
+		#big {
+			background-color: #056FD3;
+			width: 400px;
+			height: 400px;
+		}
+		
+		#normal {
+			background-color: #74DEF8;
+			width: 200px;
+			height: 200px;
+			margin: 100px;
+		}
+		
+		#small {
+			background-color: #F5E84D;
+			width: 100px;
+			height: 100px;
+			margin: 50px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="big" onclick="alert('I am 父级')">
+		<div id="normal" onclick="alert('I am 中间')">
+			<div id="small" onclick="alert('I am 子级')">
+
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
+<script type="text/javascript">
+	var titleget = null;
+	document.addEventListener("visibilitychange", function() {
+		if(document.hidden) {
+			if(titleget) {
+				clearTimeout(titleget)
+			}
+			document.title = "主人你到哪里去了~";
+		} else {
+			document.title = "欢迎回来~";
+			titleget = setTimeout(function() {
+				document.title = "这个是一个页面~";
+			}, 2000);
+		}
+	}, false);
+	let a = new Date()
+	console.log(a)
+</script>

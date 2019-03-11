@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul {
+			list-style: none;
+			position: absolute;
+			bottom: 0;
+			left: 175px;
+		}
+		
+		ul li {
+			float: left;
+		}
+		
+		ul li a {
+			display: block;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background-color: #ffbeaa;
+			margin-left: 5px;
+			opacity: 0.6;
+		}
+		
+		ul li a.active {
+			background-color: red;
+		}
+		
+		.inner {
+			width: 4200px;
+			height: 400px;
+			position: absolute;
+		}
+		
+		.inner img {
+			display: block;
+			float: left;
+			height: 100%;
+		}
+		
+		.pic {
+			height: 400px;
+			width: 600px;
+			overflow: hidden;
+			position: relative;
+		}
+		
+		.prev, .next {
+			position: absolute;
+			display: block;
+			width: 10px;
+			height: 10px;
+			background: #000;
+			top: 190px;
+			opacity: 0.6;
+		}
+		
+		.next {
+			right: 0;
+		}
+	</style>
+	<script>
+	</script>
+</head>
+
+<body>
+	<div class="pic" id="pic">
+		<div class="inner" id="inner" style="left:-600px;">
+			<img src="img/value-1.png" alt="">
+			<img src="img/value-2.png" alt="">
+			<img src="img/value-3.png" alt="">
+			<img src="img/value-1.png" alt="">
+			<img src="img/value-2.png" alt="">
+			<img src="img/value-3.png" alt="">
+			<img src="img/value-1.png" alt="">
+		</div>
+		<ul id="ul">
+			<li>
+				<a href="#" class="active" id="1"></a>
+			</li>
+			<li>
+				<a href="#" id="2"></a>
+			</li>
+			<li>
+				<a href="#" id="3"></a>
+			</li>
+			<li>
+				<a href="#" id="4"></a>
+			</li>
+			<li>
+				<a href="#" id="5"></a>
+			</li>
+		</ul>
+		<a href="#" class="prev" id="prev"></a>
+		<a href="#" class="next" id="next"></a>
+	</div>
+</body>
+
+</html>
+<script>
+	//文档加载完毕后执行函数
+	window.onload = function() {
+		var pic = document.getElementById("pic");
+		var inner = document.getElementById("inner");
+		var li = document.getElementById("ul").getElementsByTagName("a");
+		var prev = document.getElementById("prev");
+		var next = document.getElementById("next");
+		//设置索引初始值，点击自增或者自减，根据index值来给按钮添加颜色
+		var index = 1;
+		//左点击事件
+		prev.onclick = function() {
+			//调用动画函数，传入正的600，为每次的偏移量
+			animate(600);
+			//设置索引的范围，不能小于1
+			if(index == 1) {
+				index = 5;
+			} else {
+				index--;
+			}
+			//调用添加颜色函数
+			showButton();
+		}
+		//右点击事件
+		next.onclick = function() {
+			//调用动画函数，传入负的600，为每次的偏移量
+			animate(-600);
+			//设置索引的范围，不能超过5    
+			if(index == 5) {
+				index = 1;
+			} else {
+				index++;
+			}
+			showButton();
+		}
+		//动画函数，offset参数为偏移量
+		function animate(offset) {
+			//获取现在.inner盒子的位置加上偏移量 赋值 给.inner盒子
+			inner.style.left = parseInt(inner.style.left) + offset + "px";
+			//判断新的位置，如果小于-3000则变为-600px，如果大于-600则变为-3000px
+			if(parseInt(inner.style.left) < -3000) {
+				inner.style.left = -600 + "px";
+			}
+			if(parseInt(inner.style.left) > -600) {
+				inner.style.left = -3000 + "px";
+			}
+		}
+		//按钮添加颜色函数
+		function showButton() {
+			//遍历每个a元素，如果有active类 则替换为空字符串，也就是移除这个类
+			for(var i = 0; i < li.length; i++) {
+				if(li[i].className == "active") {
+					li[i].className = "";
+					//移除后就没必要去循环了，做一个优化。
+					break;
+				}
+			}
+			//根据当前的index值，找到对应的a元素添加active类
+			li[index - 1].className = "active";
+		}
+	}
+</script>
