@@ -1,0 +1,255 @@
+.casinoBg {
+  background-image: url("../images/casino-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+/*--------------一张图片----------------*/
+.casino-divBg {
+  /* overflow: hidden; */
+  width: 1000px;
+  height: auto;
+  margin: auto;
+}
+
+* {
+	margin: 0;
+	padding: 0
+}
+
+ul,li {
+	list-style: none
+}
+
+.rvc {
+    max-width: 1000px;
+    padding:0 50px;
+	position: relative;
+	margin: auto;
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+.rvc .rvc-wrapper {
+	margin: auto;
+    overflow: hidden;
+    width: 900px!important;
+}
+
+.rvc .rvc-wrapper ul {
+	/* overflow: hidden; */
+	position: relative;
+}
+
+.rvc .rvc-wrapper ul li {
+    float: left;
+    width: 150px!important;
+    height: 200px!important;
+}
+
+.rvc .rvc-wrapper ul li a {
+	display: block;
+    width: 150px;
+	height: 200px;
+	text-decoration: none;
+}
+
+.rvc .rvc-wrapper ul li a .img-wrapper {
+    height: 200px;
+    width: 150px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center
+}
+
+.rvc .rvc-wrapper ul li a h2 {
+	margin-top: 10px;
+	text-align: center
+}
+
+.rvc .rvc-wrapper ul li a p {
+	padding: 10px;
+	height: 80px
+}
+
+.rvc-prv,.rvc-next,.rvc-prvs,.rvc-nexts{
+	position: absolute;
+	height: 100%;
+	top: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+    align-items: center;
+    width: 40px!important;
+    height: 40px!important;
+    border-radius: 50%;
+    background: #161C32;
+    top:45%;
+    outline: none;
+}
+/* 左箭头 */
+.rvc-prv ,.rvc-prvs{
+    left: 0;
+    background: url("../images/video-l.png") 100% center no-repeat;
+}
+
+.rvc-prv:hover,.rvc-prvs:hover{
+    background: url("../images/video-l-active.png") 100% center no-repeat;
+}
+/* 右箭头 */
+.rvc-next,.rvc-nexts {
+    right: 0;
+    background: url("../images/video-r.png") 100% center no-repeat;
+}
+.rvc-next:hover,.rvc-nexts:hover{
+    background: url("../images/video-r-active.png") 100% center no-repeat;
+}
+.rvc-prv:hover,.rvc-next:hover,.rvc-prvs:hover,.rvc-nexts:hover{
+    cursor: pointer;
+}
+/* 禁用状态 */
+.swiper-button-disabled:hover,.swiper-button-disabled{
+    cursor: not-allowed;
+    opacity: .6;
+}
+.swiper-button-disabled:hover.rvc-prv,.swiper-button-disabled:hover.rvc-prvs{
+    background: url("../images/video-l.png") 100% center no-repeat;
+}
+.swiper-button-disabled:hover.rvc-next,.swiper-button-disabled:hover.rvc-nexts{
+    background: url("../images/video-r.png") 100% center no-repeat;
+}
+
+/* 蒙版 */
+/* .div-mask{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    line-height: 200px;
+    text-align: center;
+    background-color: rgba(0,0,0,0.1);
+    display: block;
+} */
+
+
+.swiper-slide:hover .imgxians{
+    /* display: none; */
+}
+.swiper-slide a{
+    line-height: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+.childbox{
+    background-image: linear-gradient(221deg, 
+		#ff30ee 0%, 
+		#a36cff 100%), 
+	linear-gradient(
+		#1b1b1b, 
+		#1b1b1b);
+	background-blend-mode: normal, 
+		normal;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* display: none; */
+}
+.imgxian,.imgxians{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+}
+.imgxian img,.imgxians img{
+    display: inline-block;
+}
+
+.mid-content{
+    height: 780px;
+    width: 1000px;
+    margin-bottom: -40px;
+}
+.newColor{
+    background-image: linear-gradient(221deg, 
+		#ff30ee 0%, 
+		#a36cff 100%), 
+	linear-gradient(
+		#1b1b1b, 
+		#1b1b1b);
+	background-blend-mode: normal, 
+        normal;
+    opacity: .6;
+}
+
+/* 中间内容区域 */
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+}
+.swiper-slide {
+    background-size: cover;
+    background-position: center;
+}
+.gallery-bot,.gallery-top {
+    height: 100%;
+    width: 100%;
+}
+
+.gallery-thumbs-bot,.gallery-thumbs-top {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+/* .gallery-thumbs-bot .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4; 
+} */
+#rvc2 .gallery-thumbs-bot .swiper-slide-thumb-active {
+    opacity: 1;
+
+}
+.dis-flex{
+    display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

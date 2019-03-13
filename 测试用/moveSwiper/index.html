@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="{utf-8}">
+    <title></title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <style>
+        .aa {
+            height: 100px;
+            width: 200px;
+            position: absolute;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aa"></div>
+</body>
+
+</html>
+<script>
+    $(".aa").mousedown(function (e) {
+        //设置移动后的默认位置
+        var endx = 0;
+        var endy = 0;
+
+        //获取div的初始位置，要注意的是需要转整型，因为获取到值带px
+        var left = parseInt($(".aa").css("left"));
+        var top = parseInt($(".aa").css("top"));
+
+        //获取鼠标按下时的坐标，区别于下面的es.pageX,es.pageY
+        var downx = e.pageX;
+        var downy = e.pageY;   //pageY的y要大写，必须大写！！
+
+        //  鼠标按下时给div挂事件
+        $(".aa").bind("mousemove", function (es) {
+
+            //es.pageX,es.pageY:获取鼠标移动后的坐标
+            var endx = es.pageX - downx + left;   //计算div的最终位置
+            var endy = es.pageY - downy + top;
+
+            //带上单位
+            $(".aa").css("left", endx + "px").css("top", endy + "px")
+        });
+    })
+
+
+    $(".aa").mouseup(function () {
+        //鼠标弹起时给div取消事件
+        $(".aa").unbind("mousemove")
+    })
+
+</script>
+<script>
+    $(".aa").mousedown(function (e) {
+        $(document).bind("mousemove", function (e) {
+            $(".aa").css("left", e.pageX).css("top", e.pageY)
+        });
+    })
+    $(".aa").mouseup(function () {
+        $(document).unbind("mousemove")
+    })
+</script>
