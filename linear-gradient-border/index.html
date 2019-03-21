@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .rvc-prv,.rvc-next  { 
+            width: 40px!important;
+            height: 40px!important; 
+            box-sizing: border-box; 
+            /* 此padding为渐变色宽度 */
+            padding: 1px; 
+            border-radius: 50%; 
+            background-image: -webkit-linear-gradient(230deg, 
+                #ff30ee 0%, 
+                #a36cff 100%);  
+            background-image: -moz-linear-gradient(230deg, 
+                #ff30ee 0%, 
+                #a36cff 100%);  
+            background-image: linear-gradient(230deg, 
+                #ff30ee 0%, 
+                #a36cff 100%); 
+            top: 45%;
+        }
+        .rvc-prv,.rvc-next {
+            position: absolute;
+            height: 100%;
+            top: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .box { 
+            width:100%; 
+            height:100%; 
+            border-radius:50%; 
+            background-color: #161C32!important;
+            background-position: 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="rvc-prv">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

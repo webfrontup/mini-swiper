@@ -1,0 +1,231 @@
+body {
+	padding:0;
+	margin:0;
+	background:#fff;
+	/* overflow-x: hidden; overflow-y: hidden; */
+}
+body,html {
+	height:100%;
+}
+div,li,ul {
+	padding:0;
+	margin:0;
+}
+img {
+	vertical-align:top;
+	border:0;
+}
+li,ul {
+	list-style:none;
+	text-transform:capitalize;
+}
+#pk-banner {
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+}
+#pk-carousel {
+	position:relative;
+	z-index:2;
+	transform-style:preserve-3d;
+    perspective:648px;
+    height:346px;
+    /* margin-left: 17px; */
+}
+#pk-carousel .img {
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-324px;
+	transition:transform .5s ease-in-out;
+	/* box-shadow:8px 8px 20px rgba(0,0,0,.2); */
+    cursor:pointer;
+    width: 632px!important;
+	height: 226px;
+	border-radius: 10px;
+    opacity: 0;
+    background-image: url("../img/f1.png");
+    background-size: 100% 100%;
+    padding: 1% 8%;
+    /* padding: 20px 96px; */
+}
+#pk-carousel .img h1{
+    text-align: center;
+    font-size: 24px;
+    height: 24px;
+    color: #604414;
+    margin: 20px auto;
+}
+#pk-carousel .img p{
+    font-family: PingFangSC-Regular;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 24px;
+	letter-spacing: 0px;
+	color: #583d10;
+	opacity: 0.8;
+}
+/* 维护 */
+#pk-carousel .img .maintenance{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#pk-carousel .img .maintenance .conts{
+    width: 160px;
+    height: 148px;
+    text-align: center;
+}
+#pk-carousel .img .maintenance .conts p{
+    font-size: 20px;
+	line-height: 24px;
+    color: #eeca84;
+    background-color: #8f7136;
+	border-radius: 16px;
+}
+
+
+
+
+
+
+
+#bannerNav {
+    position: relative;
+    padding: 10px 0;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    height: 130px;
+}
+#bannerNav ul{
+    width: 100%;
+    display: flex;
+    top: 0;
+    justify-content: space-around;
+    align-items: center;
+    height: 130px;
+    padding: 0 180px;
+}
+    
+#bannerNav ul li {
+	cursor:pointer;
+	overflow:hidden;
+	display:inline-block;
+	width: 130px;
+	height: 130px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 50%;
+}
+#bannerNav ul li a {
+	margin:0 auto;
+	display:block;
+	width: 90px;
+	height: 90px;
+	background-image: linear-gradient(45deg, 
+		#646464 0%, 
+		#000000 99%), 
+	linear-gradient(
+		#01040a, 
+		#01040a);
+	background-blend-mode: normal, 
+		normal;
+    opacity: 0.85;
+    border-radius: 50%;
+    background-size: cover;
+}
+/* 移入状态和激活状态 */
+#bannerNav ul li.on a,
+/* #bannerNav ul li:hover a,
+#bannerNav ul li:hover, */
+#bannerNav ul li.on {
+    width: 130px;
+	height: 130px;
+	/* background-color: #ffffff; */
+	/* opacity: 0.4; */
+    
+}
+#bannerNav ul li.on a {
+	/* width:100%; */
+}
+#pk_carouseltop{
+    margin-top: 10px;
+    /* margin-bottom: 49px; */
+}
+#bannerNav ul li:first-child a{
+    background-image: url("../img/hg-bb.png");
+    
+}
+#bannerNav ul li:first-child.on a {
+     background-image: url("../img/hg-bb-active.png");
+}
+
+#bannerNav ul li:nth-child(2) a{
+    background-image: url("../img/hg-im.png");
+
+}
+#bannerNav ul li:nth-child(2).on a{
+    background-image: url("../img/hg-im-active.png");
+}
+#bannerNav ul li:nth-child(3) a{
+    background-image: url("../img/hg-hg.png");
+
+}
+#bannerNav ul li:nth-child(3).on a{
+    background-image: url("../img/hg-hg-active.png");
+}
+#bannerNav ul li:nth-child(4) a{
+    background-image: url("../img/hg-sb.png");
+
+}
+#bannerNav ul li:nth-child(4).on a{
+    background-image: url("../img/hg-sb-active.png");
+}
+
+/* 小球位置 */
+.pk-football{
+    width: 57px;
+    height: 57px;
+    position: absolute;
+    z-index: 2000;
+    top: 240px;
+    right: 296px;
+    background-image: url("../img/football.png");
+    background-size: cover;
+}
+
+/* 球场 */
+#pk_playground{
+    width: 100%;
+    height: 155px;
+    margin-top: -80px;
+}
+#pk_playground img,#pk_lighting img {
+    width: 100%;
+    mix-blend-mode: lighten;
+}
+#pk_lighting img{
+    mix-blend-mode: overlay;
+}
+#pk_lighting {
+    width: 100%;
+    height: 20px;
+    margin-top: -29px;
+}
+
+.contentx{
+    position: relative;
+}
+.div-mask{
+    position: absolute;
+    width: 652px;
+    height: 226px;
+    top: 0;
+    left: -10px;
+    z-index: 1000;
+}
